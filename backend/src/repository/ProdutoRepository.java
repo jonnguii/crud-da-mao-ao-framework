@@ -13,12 +13,20 @@ public class ProdutoRepository {
         produtos.add(produto);
     }
 
-    public List <Produto> listarTodos() {
+    public List<Produto> listarTodos() {
         return produtos;
     }
 
-    public List<Produto> buscarPorId(Integer id) {
-        return null;
+    public void buscarPorId(Integer id) {
+        for (Produto produto : produtos) {
+            if (produto.getId().equals(id)) {
+                System.out.println(produto);
+            }
+        }
+    }
+
+    public boolean deletar(Integer id) {
+        return produtos.remove(id);
     }
 
 

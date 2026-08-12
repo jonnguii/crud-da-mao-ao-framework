@@ -8,7 +8,13 @@ public class Main {
         Produto produto1 = new Produto(1, "teste", 10, 1);
 
         produtoRepository.salvar(produto1);
+        System.out.println(produtoRepository.produtos.size());
+        produtoRepository.buscarPorId(1);
+        produtoRepository.deletar(1);
+        produtoRepository.buscarPorId(1);
+        System.out.println(produtoRepository.produtos.size());
 
-        System.out.println(produtoRepository.listarTodos());
+//        System.out.println(produtoRepository.listarTodos());
+
     }
 }
