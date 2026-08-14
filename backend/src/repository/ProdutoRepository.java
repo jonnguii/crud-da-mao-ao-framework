@@ -13,8 +13,10 @@ public class ProdutoRepository {
         produtos.add(produto);
     }
 
-    public List<Produto> listarTodos() {
-        return produtos;
+    public void listarTodos() {
+        for(Produto produto : produtos) {
+            System.out.println(produto);
+        }
     }
 
     public void buscarPorId(Integer id) {
@@ -23,16 +25,30 @@ public class ProdutoRepository {
                 System.out.println(produto);
             }
         }
+        System.out.println("Não há produtos na lista");
     }
 
-    public boolean deletar(Integer id) {
-        return produtos.remove(id);
+    public void atualizar(String nome, double preco, Integer estoque) {
+        for (Produto produto : produtos) {
+            if (produto.getNome() != null) {
+                produto.setNome(nome);
+            }
+            if (produto.getPreco() >= 0) {
+                produto.setPreco(preco);
+            }
+            if (produto.getEstoque() != null) {
+                produto.setEstoque(estoque);
+            }
+
+        }
     }
 
+    public void deletar(Integer id) {
+        for (Produto produto : produtos) {
+            if (produto != null) {
+                produtos.remove(id);
+            }
+        }
 
-    //salvar(Produto produto)
-    //listarTodos()
-    //buscarPorId(Long id)
-    //atualizar(Produto produto)
-    //deletar(Long id)
+    }
 }
