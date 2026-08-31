@@ -1,19 +1,21 @@
 import model.Produto;
 import repository.ProdutoRepository;
+import service.ProdutoService;
 
 public class Main {
     public static void main(String[] args) {
 
         ProdutoRepository produtoRepository = new ProdutoRepository();
-        Produto produto1 = new Produto(1, "teste", 10, 1);
+        ProdutoService produtoService = new ProdutoService();
 
-        System.out.println(produtoRepository.produtos.size());
-        produtoRepository.buscarPorId(1);
-        produtoRepository.salvar(produto1);
-        System.out.println(produtoRepository.produtos.size());
-        produtoRepository.deletar(1);
-        produtoRepository.listarTodos();
-        System.out.println(produtoRepository.produtos.size());
+
+        Produto prod = produtoService.cadastrarProduto(1L, "teste", 10, 1);
+        Produto prod2 = produtoService.cadastrarProduto(2L, "teste2", 20, 5);
+        produtoService.buscarProduto(2L);
+        produtoService.editarProduto(2L, "mudar", 15, 2);
+        produtoService.listarProdutos();
+
+
 
     }
 }

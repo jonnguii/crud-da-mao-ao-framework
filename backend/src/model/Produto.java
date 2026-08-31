@@ -1,23 +1,23 @@
 package model;
 
 public class Produto {
-    Integer id;
+    Long id;
     String nome;
     double preco;
-    Integer estoque;
+    Integer estoqueQuantidade;
 
-    public Produto(Integer id, String nome, double preco, Integer estoque) {
+    public Produto(Long id, String nome, double preco, Integer estoqueQuantidade) {
         this.id = id;
         this.nome = nome;
         this.preco = preco;
-        this.estoque = estoque;
+        this.estoqueQuantidade = estoqueQuantidade;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -37,12 +37,12 @@ public class Produto {
         this.preco = preco;
     }
 
-    public Integer getEstoque() {
-        return estoque;
+    public Integer getEstoqueQuantidade() {
+        return estoqueQuantidade;
     }
 
-    public void setEstoque(Integer estoque) {
-        this.estoque = estoque;
+    public void setEstoqueQuantidade(Integer estoqueQuantidade) {
+        this.estoqueQuantidade = estoqueQuantidade;
     }
 
 
@@ -52,7 +52,7 @@ public class Produto {
                 "id=" + id +
                 ", nome='" + nome + '\'' +
                 ", preco=" + preco +
-                ", estoque=" + estoque +
+                ", estoque=" + estoqueQuantidade +
                 '}';
     }
 }

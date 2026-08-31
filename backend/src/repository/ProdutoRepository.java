@@ -14,41 +14,45 @@ public class ProdutoRepository {
     }
 
     public void listarTodos() {
-        for(Produto produto : produtos) {
+        for (Produto produto : produtos) {
             System.out.println(produto);
         }
     }
 
-    public void buscarPorId(Integer id) {
-        for (Produto produto : produtos) {
-            if (produto.getId().equals(id)) {
-                System.out.println(produto);
+    public Produto buscarPorId(Long id) {
+        for(Produto produto : produtos) {
+            if(produto.getId().equals(id)) {
+                return produto;
             }
         }
-        System.out.println("Não há produtos na lista");
+        return null;
+
     }
 
-    public void atualizar(String nome, double preco, Integer estoque) {
-        for (Produto produto : produtos) {
-            if (produto.getNome() != null) {
-                produto.setNome(nome);
-            }
-            if (produto.getPreco() >= 0) {
-                produto.setPreco(preco);
-            }
-            if (produto.getEstoque() != null) {
-                produto.setEstoque(estoque);
-            }
 
+
+public Produto atualizar(Long id, String nome, double preco, Integer estoque) {
+    for (Produto produto : produtos) {
+        if (produto.getNome() != null) {
+            produto.setNome(nome);
+        }
+        if (produto.getPreco() >= 0) {
+            produto.setPreco(preco);
+        }
+        if (produto.getEstoqueQuantidade() != null) {
+            produto.setEstoqueQuantidade(estoque);
+        }
+        return produto;
+    }
+    return null;
+}
+
+public void deletar(Long id) {
+    for (Produto produto : produtos) {
+        if (produto != null) {
+            produtos.remove(id);
         }
     }
 
-    public void deletar(Integer id) {
-        for (Produto produto : produtos) {
-            if (produto != null) {
-                produtos.remove(id);
-            }
-        }
-
-    }
+}
 }
