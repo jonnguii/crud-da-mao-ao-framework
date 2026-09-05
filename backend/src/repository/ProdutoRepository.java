@@ -31,28 +31,31 @@ public class ProdutoRepository {
 
 
 
-public Produto atualizar(Long id, String nome, double preco, Integer estoque) {
-    for (Produto produto : produtos) {
-        if (produto.getNome() != null) {
-            produto.setNome(nome);
+    public Produto atualizar(Long id, String nome, double preco, Integer estoque) {
+        for (Produto produto : produtos) {
+            if (id.equals(produto.getId())) {
+                if (produto.getNome() != null) {
+                    produto.setNome(nome);
+                }
+                if (produto.getPreco() >= 0) {
+                    produto.setPreco(preco);
+                }
+                if (produto.getEstoqueQuantidade() != null) {
+                    produto.setEstoqueQuantidade(estoque);
+                }
+                return produto;
+            }
         }
-        if (produto.getPreco() >= 0) {
-            produto.setPreco(preco);
-        }
-        if (produto.getEstoqueQuantidade() != null) {
-            produto.setEstoqueQuantidade(estoque);
-        }
-        return produto;
-    }
-    return null;
-}
-
-public void deletar(Long id) {
-    for (Produto produto : produtos) {
-        if (produto != null) {
-            produtos.remove(id);
-        }
+        return null;
     }
 
-}
+    public Produto deletar(Long id) {
+        for(Produto produto : produtos) {
+            if(id.equals(produto.getId())) {
+                produtos.remove(produto);
+                return produto;
+            }
+        }
+        return null;
+    }
 }
